@@ -1,9 +1,23 @@
+
 <section>
 
   <h1>Willkommen im LPIC-Simulator!</h1>
 
-  @if (questions$ | async; as questions) {
+  <button routerLink="/exam">
+  Prüfungsmodus
+</button>
 
+<button routerLink="/learn">
+  Lernmodus
+</button>
+
+<button routerLink="/questions">
+  Fragenliste
+</button>
+
+
+  @if (questions$ | async; as questions) {
+ 
     <p>Anzahl Fragen: {{ questions.length }}</p>
 
   } @else {
