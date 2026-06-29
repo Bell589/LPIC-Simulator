@@ -1,0 +1,1 @@
+export type QuestionType = 'mc' | 'sc' | 'fi';

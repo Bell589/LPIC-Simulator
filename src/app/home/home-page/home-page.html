@@ -1,12 +1,15 @@
 <section>
-    <h1>Wilkommen im LPIC-Simulator!</h1>
-    <div>
-        <h3>
-           <p> Katalog,</p>
-           <p> Übungsmodus, Prüfungsmodus, Fragenliste,</p>
-            <p>Reihenfolge, Fragentyp,</p>
-            <p>Anzahl der Fragen,</p>
-            <p>Start</p>
-        </h3>
-    </div>
+
+  <h1>Willkommen im LPIC-Simulator!</h1>
+
+  @if (questions$ | async; as questions) {
+
+    <p>Anzahl Fragen: {{ questions.length }}</p>
+
+  } @else {
+
+    <p>Fragen werden geladen ...</p>
+
+  }
+
 </section>
