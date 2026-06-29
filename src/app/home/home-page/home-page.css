@@ -1,0 +1,104 @@
+/* Gesamte Seite */
+section {
+    width: 480px;
+    margin: 20px auto;
+    border: 1px solid #666;
+    padding: 25px;
+    background: #fff;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Überschrift als blauer Balken wie "LPIC-Simulator" */
+h1 {
+    width: 260px;
+    margin: 0 auto 8px;
+    text-align: center;
+    padding: 8px;
+    background: linear-gradient(#d9e8ff, #84a9d8);
+    border: 1px solid #6b8dbb;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Begrüßungstext klein und zentriert */
+p {
+    text-align: center;
+    font-size: 13px;
+    color: #555;
+    margin: 0 0 20px;
+}
+
+/* Zeilenumbrüche nicht mehr als Abstandhalter nutzen */
+br {
+    display: none;
+}
+
+/* Alle Options-Boxen (div, das ein label+select enthält) */
+div:has(select),
+div:has(input) {
+    border: 1px solid #666;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+
+/* Label über dem Select/Input */
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+    text-align: center;
+}
+
+select,
+input {
+    display: block;
+    width: 100%;
+    padding: 6px;
+    box-sizing: border-box;
+    border: 1px solid #999;
+    background: #fff;
+}
+
+/* Katalog -> pink */
+div:has(#catalog) {
+    background: #e9b7d4;
+}
+
+/* Modus -> blau */
+div:has(#mode) {
+    background: #a9d5ec;
+}
+
+/* Reihenfolge -> türkis */
+div:has(#order) {
+    background: #bdeeee;
+}
+
+/* Fragentyp -> türkis */
+div:has(#questionType) {
+    background: #bdeeee;
+}
+
+/* Anzahl Fragen -> orange/lachs */
+div:has(#numberOfQuestions) {
+    background: #f6d2cb;
+}
+
+/* Start Button */
+button {
+    display: block;
+    width: 160px;
+    margin: 10px auto 0;
+    padding: 15px;
+    border: 1px solid #6fa15d;
+    border-radius: 8px;
+    background: linear-gradient(#d5efc9, #93cf7d);
+    font-size: 18px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: linear-gradient(#c5e7b6, #81c668);
+}
