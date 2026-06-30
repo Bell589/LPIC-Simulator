@@ -1,10 +1,11 @@
 import { Answer } from './answer';
-import { QuestionType } from './question-type';
+
+export type QuestionType = 'sc' | 'mc' | 'fi';
 
 export interface Question {
   id: number;
+  catalog: string;
   type: QuestionType;
-  questionText: string;
+  text: string;
   answers: Answer[];
-  hint: string;
 }

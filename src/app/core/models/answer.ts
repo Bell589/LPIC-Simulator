@@ -1,5 +1,4 @@
 export interface Answer {
-    id: number;
-    isCorrect: boolean;
-    answerText: string; 
+  text: string;
+  isCorrect: boolean;
 }
