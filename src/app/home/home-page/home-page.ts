@@ -1,102 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
+import { QuizService } from '../../core/services/quiz.service';
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './home-page.html',
   styleUrl: './home-page.css'
 })
 export class HomePage {
 
+  private quizService = inject(QuizService);
+  private router = inject(Router);
+
   catalog = '101a';
-
-  mode = 'practice';
-
-  order = 'normal';
-
-  questionType = 'all';
-
-  numberOfQuestions = 85;
-
-  maxQuestions = 85;
-
-  constructor() {
-    this.updateQuestionCount();
-  }
-
-  updateQuestionCount(): void {
-
-    switch (this.catalog) {
-
-      case '101a':
-        this.maxQuestions = 85;
-        break;
-
-      case '101b':
-        this.maxQuestions = 85;
-        break;
-
-      case '102a':
-        this.maxQuestions = 85;
-        break;
-
-      case '102b':
-        this.maxQuestions = 85;
-        break;
-
-      case '103a':
-        this.maxQuestions = 85;
-        break;
-
-      case '103b':
-        this.maxQuestions = 85;
-        break;
-
-      case '104a':
-        this.maxQuestions = 85;
-        break;
-
-      case '104b':
-        this.maxQuestions = 85;
-        break;
-
-      case '105a':
-        this.maxQuestions = 85;
-        break;
-
-      case '105b':
-        this.maxQuestions = 85;
-        break;
-
-      case '106a':
-        this.maxQuestions = 85;
-        break;
-
-      case '106b':
-        this.maxQuestions = 85;
-        break;
-
-    }
-
-    this.numberOfQuestions = this.maxQuestions;
-  }
-
-  get questionNumbers(): number[] {
-
-    return Array.from(
-      { length: this.maxQuestions },
-      (_, index) => index + 1
-    );
-
-  }
+  mode: 'practice' | 'exam' = 'practice';
+  order: 'normal' | 'random' = 'normal';
+  questionType: 'all' | 'sc' | 'mc' | 'fi' = 'all';
+  numberOfQuestions = 10;
 
   startQuiz(): void {
-
-    console.log('Quiz starten');
-
-    console.log({
+    this.quizService.setSettings({
       catalog: this.catalog,
       mode: this.mode,
       order: this.order,
@@ -104,6 +30,8 @@ export class HomePage {
       numberOfQuestions: this.numberOfQuestions
     });
 
+    const target = this.mode === 'exam' ? '/exam' : '/learning';
+    this.router.navigate([target]);
   }
 
 }
