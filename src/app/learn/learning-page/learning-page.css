@@ -8,13 +8,6 @@ section {
     margin-bottom: 10px;
 }
 
-.cancel-btn {
-    padding: 6px 14px;
-    background: #f0a0a0;
-    border: 1px solid #c06060;
-    cursor: pointer;
-}
-
 .meta {
     display: flex;
     gap: 20px;
@@ -109,4 +102,14 @@ section {
 .nav-buttons button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+}
+
+.nav-buttons .cancel-btn {
+    background: #e57373;
+    border: 1px solid #c62828;
+    color: #fff;
+}
+
+.nav-buttons .cancel-btn:hover {
+    background: #ef5350;
 }
