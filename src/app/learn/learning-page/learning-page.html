@@ -1,11 +1,94 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Übungsmodus</title>
-</head>
-<body>
-    
-</body>
-</html>
+<section>
+
+  <h1>Übungsmodus</h1>
+
+  <div class="meta">
+    <span>Katalog: {{ catalog() }}</span>
+    <span>Id: {{ currentQuestion()?.id }}</span>
+    <span>{{ progressText() }}</span>
+  </div>
+
+  @if (currentQuestion()) {
+
+    <div class="question-box">
+      {{ currentQuestion()?.text }}
+    </div>
+
+    @switch (currentQuestion()?.type) {
+
+      @case ('sc') {
+
+        <div class="answers">
+          @for (answer of currentQuestion()?.answers; track $index) {
+            <button
+              (click)="selectSingleAnswer($index)"
+              [class.selected]="selectedAnswerIndex() === $index"
+              [class.correct]="showAnswer() && answer.isCorrect"
+              [class.incorrect]="showAnswer() && selectedAnswerIndex() === $index && !answer.isCorrect">
+              {{ answer.text }}
+            </button>
+          }
+        </div>
+
+      }
+
+      @case ('mc') {
+
+        <div class="answers">
+          @for (answer of currentQuestion()?.answers; track $index) {
+            <button
+              (click)="toggleMultipleAnswer($index)"
+              [class.selected]="selectedAnswerIndices().includes($index)"
+              [class.correct]="showAnswer() && answer.isCorrect"
+              [class.incorrect]="showAnswer() && selectedAnswerIndices().includes($index) && !answer.isCorrect">
+              {{ answer.text }}
+            </button>
+          }
+        </div>
+
+      }
+
+      @case ('fi') {
+
+        <div class="fill-in">
+          <input
+            type="text"
+            [(ngModel)]="fillInAnswer"
+            [disabled]="showAnswer()"
+            placeholder="Antwort eingeben">
+
+          @if (showAnswer()) {
+            <p [class.correct-text]="isFillInCorrect()" [class.incorrect-text]="!isFillInCorrect()">
+              @if (isFillInCorrect()) {
+                Richtig!
+              } @else {
+                Falsch. Richtige Antwort: {{ currentQuestion()?.answers?.[0]?.text }}
+              }
+            </p>
+          }
+        </div>
+
+      }
+
+    }
+
+    <div class="actions">
+
+      <button class="reveal-btn" (click)="revealAnswer()" [disabled]="showAnswer()">Antwort auflösen</button>
+
+      <div class="nav-buttons">
+        <button (click)="previousQuestion()" [disabled]="currentIndex() === 0">Zurück</button>
+        <button (click)="nextQuestion()">
+          {{ currentIndex() === questions().length - 1 ? 'Beenden' : 'Weiter' }}
+        </button>
+      </div>
+
+    </div>
+
+  } @else {
+
+    <p>Keine Fragen für diesen Katalog gefunden.</p>
+
+  }
+
+</section>

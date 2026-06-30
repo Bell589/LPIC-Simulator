@@ -1,7 +1,6 @@
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
 import { Question } from '../models/question';
 
 @Injectable({
@@ -9,10 +8,16 @@ import { Question } from '../models/question';
 })
 export class QuestionDataService {
 
-  private readonly httpClient = inject(HttpClient);
+  private http = inject(HttpClient);
 
-  getQuestions(catalog: string): Observable<Question[]> {
-    return this.httpClient.get<Question[]>(`/data/${catalog}.json`);
+  private baseUrl = 'http://localhost:3000/questions';
+
+  getQuestionsByCatalog(catalog: string): Observable<Question[]> {
+    return this.http.get<Question[]>(`${this.baseUrl}?catalog=${catalog}`);
+  }
+
+  getQuestionById(id: number): Observable<Question> {
+    return this.http.get<Question>(`${this.baseUrl}/${id}`);
   }
 
 }

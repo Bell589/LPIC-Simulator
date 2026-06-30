@@ -1,11 +1,23 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auswertung!</title>
-</head>
-<body>
-    
-</body>
-</html>
+<section>
+
+  <h1>Auswertung</h1>
+
+  @for (entry of quizService.answeredQuestions(); track entry.questionId) {
+
+    <div class="entry" [class.correct]="entry.isCorrect" [class.incorrect]="!entry.isCorrect">
+      <p class="question">Frage: {{ entry.questionText }}</p>
+      <p class="answer">Deine Antwort: {{ entry.userAnswerText }}</p>
+      @if (!entry.isCorrect) {
+        <p class="answer">Richtige Antwort: {{ entry.correctAnswerText }}</p>
+      }
+    </div>
+
+  } @empty {
+
+    <p>Keine beantworteten Fragen vorhanden.</p>
+
+  }
+
+  <button class="home-btn" (click)="goToHome()">Startseite</button>
+
+</section>

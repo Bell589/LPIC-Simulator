@@ -1,0 +1,82 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "catalog": "101a",
+      "type": "sc",
+      "text": "Welcher Befehl zeigt die aktuell laufenden Prozesse an?",
+      "answers": [
+        { "text": "ps", "isCorrect": true },
+        { "text": "ls", "isCorrect": false },
+        { "text": "cd", "isCorrect": false },
+        { "text": "cat", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 2,
+      "catalog": "101a",
+      "type": "mc",
+      "text": "Welche der folgenden Befehle gehören zur Dateiverwaltung?",
+      "answers": [
+        { "text": "cp", "isCorrect": true },
+        { "text": "mv", "isCorrect": true },
+        { "text": "top", "isCorrect": false },
+        { "text": "df", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 3,
+      "catalog": "101a",
+      "type": "fi",
+      "text": "Mit welchem Befehl wird der Inhalt einer Datei ausgegeben?",
+      "answers": [
+        { "text": "cat", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 4,
+      "catalog": "101a",
+      "type": "sc",
+      "text": "Welcher Befehl zeigt das aktuelle Arbeitsverzeichnis an?",
+      "answers": [
+        { "text": "pwd", "isCorrect": true },
+        { "text": "whoami", "isCorrect": false },
+        { "text": "date", "isCorrect": false },
+        { "text": "uname", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 5,
+      "catalog": "101a",
+      "type": "mc",
+      "text": "Welche Befehle dienen zum Beenden von Prozessen?",
+      "answers": [
+        { "text": "kill", "isCorrect": true },
+        { "text": "killall", "isCorrect": true },
+        { "text": "grep", "isCorrect": false },
+        { "text": "find", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 6,
+      "catalog": "101b",
+      "type": "sc",
+      "text": "Welcher Befehl listet den Inhalt eines Verzeichnisses auf?",
+      "answers": [
+        { "text": "ls", "isCorrect": true },
+        { "text": "rm", "isCorrect": false },
+        { "text": "touch", "isCorrect": false },
+        { "text": "mkdir", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 7,
+      "catalog": "101b",
+      "type": "fi",
+      "text": "Mit welchem Befehl wird ein neues, leeres Verzeichnis erstellt?",
+      "answers": [
+        { "text": "mkdir", "isCorrect": true }
+      ]
+    }
+  ]
+}
