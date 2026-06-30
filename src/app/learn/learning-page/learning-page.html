@@ -1,5 +1,6 @@
 <section>
 
+
   <h1>Übungsmodus</h1>
 
   <div class="meta">
@@ -77,12 +78,17 @@
       <button class="reveal-btn" (click)="revealAnswer()" [disabled]="showAnswer()">Antwort auflösen</button>
 
       <div class="nav-buttons">
+        <button class="cancel-btn" (click)="cancelToHome()">Startseite</button>
         <button (click)="previousQuestion()" [disabled]="currentIndex() === 0">Zurück</button>
         <button (click)="nextQuestion()">
-          {{ currentIndex() === questions().length - 1 ? 'Beenden' : 'Weiter' }}
+          {{ currentIndex() === questions().length - 1 ? 'Prüfung beenden' : 'Weiter' }}
         </button>
       </div>
 
+    </div>
+
+    <div class="top-bar">
+      <button class="cancel-btn" (click)="cancelToHome()">Startseite</button>
     </div>
 
   } @else {

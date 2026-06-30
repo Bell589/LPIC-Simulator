@@ -61,6 +61,7 @@
     <div class="actions">
 
       <div class="nav-buttons">
+        <button class="cancel-btn" (click)="cancelToHome()">Startseite</button>
         <button (click)="previousQuestion()" [disabled]="currentIndex() === 0">Zurück</button>
         <button (click)="nextQuestion()">
           {{ currentIndex() === questions().length - 1 ? 'Prüfung beenden' : 'Weiter' }}

@@ -182,4 +182,9 @@ export class ExamPage implements OnInit, OnDestroy {
     this.router.navigate(['/result']);
   }
 
+  cancelToHome(): void {
+    this.stopTimer();
+    this.router.navigate(['/home']);
+  }
+
 }

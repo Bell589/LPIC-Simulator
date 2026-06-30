@@ -136,6 +136,8 @@ export class LearningPage implements OnInit {
   }
 
   nextQuestion(): void {
+    this.recordCurrentAnswer();
+
     if (this.currentIndex() < this.questions().length - 1) {
       this.currentIndex.update(i => i + 1);
       this.resetQuestionState();
@@ -145,6 +147,8 @@ export class LearningPage implements OnInit {
   }
 
   previousQuestion(): void {
+    this.recordCurrentAnswer();
+
     if (this.currentIndex() > 0) {
       this.currentIndex.update(i => i - 1);
       this.resetQuestionState();
@@ -156,6 +160,10 @@ export class LearningPage implements OnInit {
     this.selectedAnswerIndex.set(null);
     this.selectedAnswerIndices.set([]);
     this.fillInAnswer.set('');
+  }
+
+  cancelToHome(): void {
+    this.router.navigate(['/home']);
   }
 
 }
