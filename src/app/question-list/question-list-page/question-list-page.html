@@ -1,1 +1,22 @@
-<p>question-list-page works!</p>
+<section>
+
+  <h1>Fragenliste</h1>
+
+  <p class="catalog-info">Katalog: {{ catalog() }}</p>
+
+  @for (question of questions(); track question.id) {
+
+    <div class="entry">
+      <p class="question">Frage: {{ question.text }}</p>
+      <p class="answer">Antwort: {{ correctAnswerText(question) }}</p>
+    </div>
+
+  } @empty {
+
+    <p>Keine Fragen für diesen Katalog gefunden.</p>
+
+  }
+
+  <button class="home-btn" (click)="goToHome()">Startseite</button>
+
+</section>
