@@ -51,16 +51,17 @@ export class QuizService {
       result = result.filter(q => q.type === settings.questionType);
     }
 
+    // Spanne anwenden (von/bis sind 1-basiert)
+    const from = Math.max(1, settings.fromQuestion) - 1;
+    const to = Math.min(result.length, settings.toQuestion);
+    result = result.slice(from, to);
+
     if (settings.order === 'random') {
       result = this.shuffleArray(result);
       result = result.map(question => ({
         ...question,
         answers: this.shuffleArray(question.answers)
       }));
-    }
-
-    if (settings.numberOfQuestions > 0) {
-      result = result.slice(0, settings.numberOfQuestions);
     }
 
     return result;

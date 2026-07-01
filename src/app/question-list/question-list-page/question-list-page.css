@@ -2,9 +2,22 @@ section {
     margin: 20px;
 }
 
-.catalog-info {
+.catalog-selector {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
     font-weight: bold;
-    margin-bottom: 15px;
+}
+
+.catalog-selector select {
+    padding: 6px;
+    font-size: 14px;
+}
+
+.question-count {
+    color: #555;
+    font-weight: normal;
 }
 
 .entry {

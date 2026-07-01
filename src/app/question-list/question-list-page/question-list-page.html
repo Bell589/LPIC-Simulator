@@ -2,7 +2,17 @@
 
   <h1>Fragenliste</h1>
 
-  <p class="catalog-info">Katalog: {{ catalog() }}</p>
+  <div class="catalog-selector">
+    <label for="catalogSelect">Katalog:</label>
+    <select id="catalogSelect" (change)="onCatalogChange($any($event.target).value)">
+      @for (catalog of catalogs; track catalog) {
+        <option [value]="catalog" [selected]="catalog === selectedCatalog()">
+          {{ catalog }}
+        </option>
+      }
+    </select>
+    <span class="question-count">{{ questions().length }} Fragen</span>
+  </div>
 
   @for (question of questions(); track question.id) {
 

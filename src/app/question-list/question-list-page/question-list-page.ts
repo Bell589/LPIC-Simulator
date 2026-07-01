@@ -18,13 +18,30 @@ export class QuestionListPage implements OnInit {
   private router = inject(Router);
 
   questions = signal<Question[]>([]);
+  selectedCatalog = signal('101a');
 
-  catalog = computed(() => this.quizService.settings()?.catalog ?? '101a');
+  readonly catalogs = [
+    '101a', '101b', '101c', '101d', '101e',
+    '102a', '102b', '102c', '102d', '102e', '102f', '102g'
+  ];
 
   ngOnInit(): void {
-    this.questionDataService.getQuestionsByCatalog(this.catalog()).subscribe(questions => {
+    const settingsCatalog = this.quizService.settings()?.catalog;
+    if (settingsCatalog) {
+      this.selectedCatalog.set(settingsCatalog);
+    }
+    this.loadQuestions();
+  }
+
+  loadQuestions(): void {
+    this.questionDataService.getQuestionsByCatalog(this.selectedCatalog()).subscribe(questions => {
       this.questions.set(questions);
     });
+  }
+
+  onCatalogChange(catalog: string): void {
+    this.selectedCatalog.set(catalog);
+    this.loadQuestions();
   }
 
   correctAnswerText(question: Question): string {

@@ -9,7 +9,7 @@ section {
     font-family: Arial, sans-serif;
 }
 
-/* Überschrift als blauer Balken wie "LPIC-Simulator" */
+/* Überschrift als blauer Balken */
 h1 {
     width: 260px;
     margin: 0 auto 8px;
@@ -21,7 +21,7 @@ h1 {
     font-weight: bold;
 }
 
-/* Begrüßungstext klein und zentriert */
+/* Begrüßungstext */
 p {
     text-align: center;
     font-size: 13px;
@@ -29,12 +29,11 @@ p {
     margin: 0 0 20px;
 }
 
-/* Zeilenumbrüche nicht mehr als Abstandhalter nutzen */
 br {
     display: none;
 }
 
-/* Alle Options-Boxen (div, das ein label+select enthält) */
+/* Alle Boxen mit select oder input */
 div:has(select),
 div:has(input) {
     border: 1px solid #666;
@@ -43,7 +42,7 @@ div:has(input) {
     box-sizing: border-box;
 }
 
-/* Label über dem Select/Input */
+/* Label */
 label {
     display: block;
     font-weight: bold;
@@ -81,8 +80,46 @@ div:has(#questionType) {
     background: #bdeeee;
 }
 
-/* Anzahl Fragen -> orange/lachs */
-div:has(#numberOfQuestions) {
+/* Anzahl Fragen (von/bis) -> lachs */
+.range-row {
+    border: 1px solid #666;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    background: #f6d2cb;
+}
+
+.range-title {
+    display: block;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.range-inputs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.range-inputs label {
+    display: inline;
+    font-weight: normal;
+    margin: 0;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.range-inputs input {
+    width: 70px;
+    padding: 4px 6px;
+    display: inline;
+    font-size: 13px;
+}
+
+/* Zeit pro Frage -> lachs */
+div:has(#timePerQuestionSeconds) {
     background: #f6d2cb;
 }
 
@@ -101,4 +138,12 @@ button {
 
 button:hover {
     background: linear-gradient(#c5e7b6, #81c668);
+}
+
+a {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: #555;
+    font-size: 13px;
 }

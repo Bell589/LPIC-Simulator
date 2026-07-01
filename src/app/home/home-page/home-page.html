@@ -8,7 +8,8 @@
 
         <label for="catalog">Katalog</label>
 
-        <select id="catalog" [(ngModel)]="catalog">
+        <select id="catalog" [(ngModel)]="catalog" (ngModelChange)="onCatalogChange()">
+
             <option value="101a">101a</option>
             <option value="101b">101b</option>
             <option value="101c">101c</option>
@@ -21,7 +22,8 @@
             <option value="102e">102e</option>
             <option value="102f">102f</option>
             <option value="102g">102g</option>
-    </select>
+
+        </select>
 
     </div>
 
@@ -74,17 +76,29 @@
 
     <br>
 
-    <div>
+    <div class="range-row">
 
-        <label for="numberOfQuestions">Anzahl Fragen</label>
+    <span class="range-title">Anzahl Fragen (1 – {{ maxQuestions() }})</span>
 
+    <div class="range-inputs">
+        <label for="fromQuestion">von</label>
         <input
-            id="numberOfQuestions"
+            id="fromQuestion"
             type="number"
             min="1"
-            [(ngModel)]="numberOfQuestions">
+            [max]="maxQuestions()"
+            [(ngModel)]="fromQuestion">
 
+        <label for="toQuestion">bis</label>
+        <input
+            id="toQuestion"
+            type="number"
+            [min]="fromQuestion"
+            [max]="maxQuestions()"
+            [(ngModel)]="toQuestion">
     </div>
+
+</div>
 
     <br>
 
@@ -115,6 +129,6 @@
 
     <br>
 
-    <a routerLink="/list">Fragenliste ansehen</a>
+    <button routerLink="/list">Fragenliste ansehen</button>
 
 </section>
