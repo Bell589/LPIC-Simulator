@@ -34,6 +34,10 @@ export class QuestionListPage implements OnInit {
       .join(', ');
   }
 
+  goToDetail(id: number): void {
+    this.router.navigate(['/list', id]);
+  }
+
   goToHome(): void {
     this.router.navigate(['/home']);
   }

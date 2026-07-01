@@ -20,6 +20,7 @@ export class HomePage {
   order: 'normal' | 'random' = 'normal';
   questionType: 'all' | 'sc' | 'mc' | 'fi' = 'all';
   numberOfQuestions = 10;
+  timePerQuestionSeconds = 60;
 
   startQuiz(): void {
     this.quizService.setSettings({
@@ -27,7 +28,8 @@ export class HomePage {
       mode: this.mode,
       order: this.order,
       questionType: this.questionType,
-      numberOfQuestions: this.numberOfQuestions
+      numberOfQuestions: this.numberOfQuestions,
+      timePerQuestionSeconds: this.timePerQuestionSeconds
     });
 
     const target = this.mode === 'exam' ? '/exam' : '/learning';

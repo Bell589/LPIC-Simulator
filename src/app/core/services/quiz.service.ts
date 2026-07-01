@@ -52,7 +52,11 @@ export class QuizService {
     }
 
     if (settings.order === 'random') {
-      result = this.shuffle(result);
+      result = this.shuffleArray(result);
+      result = result.map(question => ({
+        ...question,
+        answers: this.shuffleArray(question.answers)
+      }));
     }
 
     if (settings.numberOfQuestions > 0) {
@@ -62,7 +66,7 @@ export class QuizService {
     return result;
   }
 
-  private shuffle(array: Question[]): Question[] {
+  private shuffleArray<T>(array: T[]): T[] {
     const copy = [...array];
 
     for (let i = copy.length - 1; i > 0; i--) {

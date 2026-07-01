@@ -11,6 +11,11 @@ section {
     border: 1px solid #333;
     padding: 12px;
     margin-bottom: 12px;
+    cursor: pointer;
+}
+
+.entry:hover {
+    background: #f0f0f0;
 }
 
 .question {
@@ -26,7 +31,7 @@ section {
     display: block;
     margin: 20px auto 0;
     padding: 10px 20px;
-    background: #e05151;
-    border: 1px solid #e20909;
+    background: #93cf7d;
+    border: 1px solid #6fa15d;
     cursor: pointer;
 }

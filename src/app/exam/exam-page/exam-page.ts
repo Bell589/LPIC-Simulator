@@ -50,6 +50,7 @@ export class ExamPage implements OnInit, OnDestroy {
 
     const settings = this.quizService.settings();
     const catalog = settings?.catalog ?? '101a';
+    const timePerQuestion = settings?.timePerQuestionSeconds ?? 60;
 
     this.questionDataService.getQuestionsByCatalog(catalog).subscribe(questions => {
       const filtered = settings
@@ -57,7 +58,7 @@ export class ExamPage implements OnInit, OnDestroy {
         : questions;
 
       this.questions.set(filtered);
-      this.remainingSeconds.set(filtered.length * 60);
+      this.remainingSeconds.set(filtered.length * timePerQuestion);
       this.startTimer();
     });
   }

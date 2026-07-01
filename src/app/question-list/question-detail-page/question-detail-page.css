@@ -1,0 +1,38 @@
+section {
+    margin: 20px;
+}
+
+.question-box {
+    border: 1px solid #333;
+    padding: 12px;
+    margin-bottom: 15px;
+}
+
+.meta {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.answers {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.answer {
+    padding: 10px;
+    background: #ddd;
+    border: 1px solid #999;
+}
+
+.answer.correct {
+    background: #b9e6b0;
+}
+
+.back-btn {
+    padding: 8px 14px;
+    background: #a9d5ec;
+    border: 1px solid #6b8dbb;
+    cursor: pointer;
+}

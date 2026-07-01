@@ -27,6 +27,12 @@ export const routes: Routes = [
       .then(m => m.QuestionListPage)
   },
   {
+    path: 'list/:id',
+    title: 'Frage-Detail',
+    loadComponent: () => import('./question-list/question-detail-page/question-detail-page')
+      .then(m => m.QuestionDetailPage)
+  },
+  {
     path: 'result',
     title: 'Ergebnis',
     loadComponent: () => import('./result/result-page/result-page')

@@ -9,21 +9,19 @@
         <label for="catalog">Katalog</label>
 
         <select id="catalog" [(ngModel)]="catalog">
-
             <option value="101a">101a</option>
             <option value="101b">101b</option>
+            <option value="101c">101c</option>
+            <option value="101d">101d</option>
+            <option value="101e">101e</option>
             <option value="102a">102a</option>
             <option value="102b">102b</option>
-            <option value="103a">103a</option>
-            <option value="103b">103b</option>
-            <option value="104a">104a</option>
-            <option value="104b">104b</option>
-            <option value="105a">105a</option>
-            <option value="105b">105b</option>
-            <option value="106a">106a</option>
-            <option value="106b">106b</option>
-
-        </select>
+            <option value="102c">102c</option>
+            <option value="102d">102d</option>
+            <option value="102e">102e</option>
+            <option value="102f">102f</option>
+            <option value="102g">102g</option>
+    </select>
 
     </div>
 
@@ -89,14 +87,34 @@
     </div>
 
     <br>
-        
-         <button routerLink="/list">Fragenliste ansehen</button>
+
+    @if (mode === 'exam') {
+
+        <div>
+
+            <label for="timePerQuestionSeconds">Zeit pro Frage (Sek.)</label>
+
+            <input
+                id="timePerQuestionSeconds"
+                type="number"
+                min="10"
+                step="10"
+                [(ngModel)]="timePerQuestionSeconds">
+
+        </div>
+
+        <br>
+
+    }
+
     <button (click)="startQuiz()">
 
         Start
-        </button>
+
+    </button>
+
     <br>
 
-
+    <a routerLink="/list">Fragenliste ansehen</a>
 
 </section>

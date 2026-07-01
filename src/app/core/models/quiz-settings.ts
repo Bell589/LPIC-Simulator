@@ -8,4 +8,5 @@ export interface QuizSettings {
   order: Order;
   questionType: QuestionTypeFilter;
   numberOfQuestions: number;
+  timePerQuestionSeconds: number;
 }

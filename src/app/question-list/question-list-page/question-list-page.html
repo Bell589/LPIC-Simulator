@@ -6,7 +6,7 @@
 
   @for (question of questions(); track question.id) {
 
-    <div class="entry">
+    <div class="entry" (click)="goToDetail(question.id)">
       <p class="question">Frage: {{ question.text }}</p>
       <p class="answer">Antwort: {{ correctAnswerText(question) }}</p>
     </div>
