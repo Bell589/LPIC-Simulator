@@ -8,6 +8,6 @@ Einen Übungs- sowie Prüfungsmodus. Das Projekt ist umgesetzt in Angular mit de
 
 Zum Starten benötigt man die Node modules die kann man mit "npm install", den jsonServer mit "npm install -D json-server" und Agular cli mit "npm install -g @angular/cli" Installieren.
 
-Starten kann man die API mit "npm run api" und die Applikation startet man mit "ng serve", danach im Browser auf die URl "http://localhost:4200".
+Starten kann man die API mit "npm run api" und die Applikation startet man mit "ng serve", danach im Browser auf die URL "http://localhost:4200".
 
 Viel Spass 
