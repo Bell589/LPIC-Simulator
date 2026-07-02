@@ -1,0 +1,115 @@
+section {
+    margin: 20px;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.meta {
+    display: flex;
+    gap: 20px;
+    background: #c5e8a0;
+    padding: 8px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.question-box {
+    border: 1px solid #333;
+    padding: 12px;
+    margin-bottom: 15px;
+}
+
+.answers {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.answers button {
+    padding: 10px;
+    background: #ddd;
+    border: 1px solid #999;
+    cursor: pointer;
+    text-align: left;
+}
+
+.answers button.selected {
+    background: #bcd4f0;
+}
+
+.answers button.correct {
+    background: #b9e6b0;
+}
+
+.answers button.incorrect {
+    background: #f0b0b0;
+}
+
+.fill-in {
+    margin-bottom: 15px;
+}
+
+.fill-in input {
+    width: 300px;
+    padding: 8px;
+}
+
+.correct-text {
+    color: green;
+    font-weight: bold;
+}
+
+.incorrect-text {
+    color: red;
+    font-weight: bold;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.reveal-btn {
+    background: #fff78b;
+    padding: 8px 14px;
+    border: 1px solid #999;
+    cursor: pointer;
+}
+
+.reveal-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-buttons button {
+    padding: 8px 14px;
+    background: #a9d5ec;
+    border: 1px solid #6b8dbb;
+    cursor: pointer;
+}
+
+.nav-buttons button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.nav-buttons .cancel-btn {
+    background: #e57373;
+    border: 1px solid #c62828;
+    color: #fff;
+}
+
+.nav-buttons .cancel-btn:hover {
+    background: #ef5350;
+}

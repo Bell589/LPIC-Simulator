@@ -1,0 +1,89 @@
+section {
+    margin: 20px;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.meta {
+    display: flex;
+    gap: 20px;
+    background: #f6d2cb;
+    padding: 8px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.timer {
+    margin-left: auto;
+}
+
+.question-box {
+    border: 1px solid #333;
+    padding: 12px;
+    margin-bottom: 15px;
+}
+
+.answers {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.answers button {
+    padding: 10px;
+    background: #ddd;
+    border: 1px solid #999;
+    cursor: pointer;
+    text-align: left;
+}
+
+.answers button.selected {
+    background: #bcd4f0;
+}
+
+.fill-in {
+    margin-bottom: 15px;
+}
+
+.fill-in input {
+    width: 300px;
+    padding: 8px;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-buttons button {
+    padding: 8px 14px;
+    background: #a9d5ec;
+    border: 1px solid #6b8dbb;
+    cursor: pointer;
+}
+
+.nav-buttons button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.nav-buttons .cancel-btn {
+    background: #e57373;
+    border: 1px solid #c62828;
+    color: #fff;
+}
+
+.nav-buttons .cancel-btn:hover {
+    background: #ef5350;
+}
