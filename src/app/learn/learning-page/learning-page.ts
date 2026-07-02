@@ -21,6 +21,7 @@ export class LearningPage implements OnInit {
   questions = signal<Question[]>([]);
   currentIndex = signal(0);
   showAnswer = signal(false);
+  isTransitioning = signal(false);
 
   selectedAnswerIndex = signal<number | null>(null);
   selectedAnswerIndices = signal<number[]>([]);
@@ -136,8 +137,22 @@ export class LearningPage implements OnInit {
   }
 
   nextQuestion(): void {
-    this.recordCurrentAnswer();
+    if (!this.showAnswer()) {
+      this.revealAnswer();
+      this.isTransitioning.set(true);
 
+      setTimeout(() => {
+        this.isTransitioning.set(false);
+        this.goToNextOrFinish();
+      }, 1500);
+
+      return;
+    }
+
+    this.goToNextOrFinish();
+  }
+
+  private goToNextOrFinish(): void {
     if (this.currentIndex() < this.questions().length - 1) {
       this.currentIndex.update(i => i + 1);
       this.resetQuestionState();
@@ -155,15 +170,15 @@ export class LearningPage implements OnInit {
     }
   }
 
+  cancelToHome(): void {
+    this.router.navigate(['/home']);
+  }
+
   private resetQuestionState(): void {
     this.showAnswer.set(false);
     this.selectedAnswerIndex.set(null);
     this.selectedAnswerIndices.set([]);
     this.fillInAnswer.set('');
-  }
-
-  cancelToHome(): void {
-    this.router.navigate(['/home']);
   }
 
 }
