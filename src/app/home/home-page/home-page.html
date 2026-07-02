@@ -2,14 +2,11 @@
 
     <h1>LPIC Simulator</h1>
 
-    <p>Made By Marcel, Creative Director Prof. Dr. Dr. Batuhan.</p>
+    <p>Willkommen im LPIC-Simulator.</p>
 
     <div>
-
         <label for="catalog">Katalog</label>
-
         <select id="catalog" [(ngModel)]="catalog" (ngModelChange)="onCatalogChange()">
-
             <option value="101a">101a</option>
             <option value="101b">101b</option>
             <option value="101c">101c</option>
@@ -22,113 +19,85 @@
             <option value="102e">102e</option>
             <option value="102f">102f</option>
             <option value="102g">102g</option>
-
         </select>
-
     </div>
 
-    <br>
-
-    <div>
-
-        <label for="mode">Modus</label>
-
-        <select id="mode" [(ngModel)]="mode">
-
-            <option value="practice">Übungsmodus</option>
-            <option value="exam">Prüfungsmodus</option>
-
-        </select>
-
+   <div class="btn-group-box mode-box">
+    <span class="btn-group-label">Modus</span>
+    <div class="btn-group">
+        <button type="button"
+            [class.active]="mode === 'practice'"
+            (click)="mode = 'practice'">
+            Übungsmodus
+        </button>
+        <button type="button"
+            [class.active]="mode === 'exam'"
+            (click)="mode = 'exam'">
+            Prüfungsmodus
+        </button>
     </div>
+</div>
 
-    <br>
-
-    <div>
-
-        <label for="order">Reihenfolge</label>
-
-        <select id="order" [(ngModel)]="order">
-
-            <option value="normal">Normal</option>
-            <option value="random">Zufällig</option>
-
-        </select>
-
+<div class="btn-group-box order-box">
+    <span class="btn-group-label">Reihenfolge</span>
+    <div class="btn-group">
+        <button type="button"
+            [class.active]="order === 'normal'"
+            (click)="order = 'normal'">
+            Normal
+        </button>
+        <button type="button"
+            [class.active]="order === 'random'"
+            (click)="order = 'random'">
+            Zufällig
+        </button>
     </div>
-
-    <br>
+</div>
 
     <div>
-
         <label for="questionType">Fragentyp</label>
-
         <select id="questionType" [(ngModel)]="questionType">
-
             <option value="all">Alle</option>
             <option value="sc">Single Choice</option>
             <option value="mc">Multiple Choice</option>
             <option value="fi">Freitext</option>
-
         </select>
-
     </div>
-
-    <br>
 
     <div class="range-row">
-
-    <span class="range-title">Anzahl Fragen (1 – {{ maxQuestions() }})</span>
-
-    <div class="range-inputs">
-        <label for="fromQuestion">von</label>
-        <input
-            id="fromQuestion"
-            type="number"
-            min="1"
-            [max]="maxQuestions()"
-            [(ngModel)]="fromQuestion">
-
-        <label for="toQuestion">bis</label>
-        <input
-            id="toQuestion"
-            type="number"
-            [min]="fromQuestion"
-            [max]="maxQuestions()"
-            [(ngModel)]="toQuestion">
+        <span class="range-title">Anzahl Fragen (1 – {{ maxQuestions() }})</span>
+        <div class="range-inputs">
+            <label for="fromQuestion">von</label>
+            <input
+                id="fromQuestion"
+                type="number"
+                min="1"
+                [max]="maxQuestions()"
+                [(ngModel)]="fromQuestion">
+            <label for="toQuestion">bis</label>
+            <input
+                id="toQuestion"
+                type="number"
+                [min]="fromQuestion"
+                [max]="maxQuestions()"
+                [(ngModel)]="toQuestion">
+        </div>
     </div>
 
-</div>
-
-    <br>
-
     @if (mode === 'exam') {
-
         <div>
-
             <label for="timePerQuestionSeconds">Zeit pro Frage (Sek.)</label>
-
             <input
                 id="timePerQuestionSeconds"
                 type="number"
                 min="10"
                 step="10"
                 [(ngModel)]="timePerQuestionSeconds">
-
         </div>
-
-        <br>
-
     }
 
-    <button (click)="startQuiz()">
+    <button class="start-btn" (click)="startQuiz()">Start</button>
 
-        Start
-
-    </button>
-
-    <br>
-
-    <button routerLink="/list">Fragenliste ansehen</button>
+    <button class="list-btn" routerLink="/list">Fragenliste</button>
 
 </section>
