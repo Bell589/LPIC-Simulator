@@ -1,20 +1,22 @@
 <section>
+  <div class="card">
 
-  <h1>Ergebnis</h1>
+    <h1>Ergebnis</h1>
 
-  <div class="result-box correct">
-    Richtig: {{ quizService.correctCount() }}
+    <div class="result-box correct">
+      Richtig: {{ quizService.correctCount() }}
+    </div>
+
+    <div class="result-box incorrect">
+      Falsch: {{ quizService.incorrectCount() }}
+    </div>
+
+    <div class="actions">
+      <button (click)="goToHome()">Startseite</button>
+      <a routerLink="/review">
+        <button>Auswertung</button>
+      </a>
+    </div>
+
   </div>
-
-  <div class="result-box incorrect">
-    Falsch: {{ quizService.incorrectCount() }}
-  </div>
-
-  <div class="actions">
-    <button (click)="goToHome()">Startseite</button>
-    <a routerLink="/review">
-      <button>Auswertung</button>
-    </a>
-  </div>
-
 </section>

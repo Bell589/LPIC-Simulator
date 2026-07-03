@@ -1,32 +1,30 @@
 <section>
+  <div class="card">
 
-  <h1>Fragenliste</h1>
+    <h1>Fragenliste</h1>
 
-  <div class="catalog-selector">
-    <label for="catalogSelect">Katalog:</label>
-    <select id="catalogSelect" (change)="onCatalogChange($any($event.target).value)">
-      @for (catalog of catalogs; track catalog) {
-        <option [value]="catalog" [selected]="catalog === selectedCatalog()">
-          {{ catalog }}
-        </option>
-      }
-    </select>
-    <span class="question-count">{{ questions().length }} Fragen</span>
-  </div>
-
-  @for (question of questions(); track question.id) {
-
-    <div class="entry" (click)="goToDetail(question.id)">
-      <p class="question">Frage: {{ question.text }}</p>
-      <p class="answer">Antwort: {{ correctAnswerText(question) }}</p>
+    <div class="catalog-selector">
+      <label for="catalogSelect">Katalog:</label>
+      <select id="catalogSelect" (change)="onCatalogChange($any($event.target).value)">
+        @for (catalog of catalogs; track catalog) {
+          <option [value]="catalog" [selected]="catalog === selectedCatalog()">
+            {{ catalog }}
+          </option>
+        }
+      </select>
+      <span class="question-count">{{ questions().length }} Fragen</span>
     </div>
 
-  } @empty {
+    @for (question of questions(); track question.id) {
+      <div class="entry" (click)="goToDetail(question.id)">
+        <p class="question">Frage: {{ question.text }}</p>
+        <p class="answer">Antwort: {{ correctAnswerText(question) }}</p>
+      </div>
+    } @empty {
+      <p style="color: rgba(255,255,255,0.6); text-align: center;">Keine Fragen gefunden.</p>
+    }
 
-    <p>Keine Fragen für diesen Katalog gefunden.</p>
+    <button class="home-btn" (click)="goToHome()">Startseite</button>
 
-  }
-
-  <button class="home-btn" (click)="goToHome()">Startseite</button>
-
+  </div>
 </section>

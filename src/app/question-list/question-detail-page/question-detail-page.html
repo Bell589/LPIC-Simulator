@@ -1,28 +1,26 @@
 <section>
+  <div class="card">
 
-  <h1>Frage-Detail</h1>
+    <h1>Frage-Detail</h1>
 
-  @if (question()) {
+    @if (question()) {
+      <div class="question-box">
+        <p class="meta">Id: {{ question()?.id }} | Katalog: {{ question()?.catalog }} | Typ: {{ question()?.type }}</p>
+        <p class="question-text">{{ question()?.text }}</p>
+      </div>
 
-    <div class="question-box">
-      <p class="meta">Id: {{ question()?.id }} | Katalog: {{ question()?.catalog }} | Typ: {{ question()?.type }}</p>
-      <p class="question-text">{{ question()?.text }}</p>
-    </div>
+      <div class="answers">
+        @for (answer of question()?.answers; track $index) {
+          <div class="answer" [class.correct]="answer.isCorrect">
+            {{ answer.text }}
+          </div>
+        }
+      </div>
+    } @else {
+      <p style="color: rgba(255,255,255,0.6); text-align: center;">Frage wird geladen...</p>
+    }
 
-    <div class="answers">
-      @for (answer of question()?.answers; track $index) {
-        <div class="answer" [class.correct]="answer.isCorrect">
-          {{ answer.text }}
-        </div>
-      }
-    </div>
+    <button class="back-btn" (click)="goBackToList()">Zurück zur Fragenliste</button>
 
-  } @else {
-
-    <p>Frage wird geladen...</p>
-
-  }
-
-  <button class="back-btn" (click)="goBackToList()">Zurück zur Fragenliste</button>
-
+  </div>
 </section>

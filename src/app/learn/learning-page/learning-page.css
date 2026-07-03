@@ -1,115 +1,180 @@
 section {
-    margin: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
 }
 
-.top-bar {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 10px;
+.card {
+  width: 100%;
+  max-width: 700px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
 }
 
 .meta {
-    display: flex;
-    gap: 20px;
-    background: #c5e8a0;
-    padding: 8px;
-    margin-bottom: 10px;
-    font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 8px 14px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .question-box {
-    border: 1px solid #333;
-    padding: 12px;
-    margin-bottom: 15px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+  color: #fff;
+  font-size: 15px;
+  line-height: 1.6;
 }
 
 .answers {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .answers button {
-    padding: 10px;
-    background: #ddd;
-    border: 1px solid #999;
-    cursor: pointer;
-    text-align: left;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s;
+}
+
+.answers button:hover {
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .answers button.selected {
-    background: #bcd4f0;
+  background: rgba(29, 233, 182, 0.2);
+  border-color: #1de9b6;
 }
 
 .answers button.correct {
-    background: #b9e6b0;
+  background: rgba(46, 213, 115, 0.3);
+  border-color: #2ed573;
+  color: #2ed573;
 }
 
 .answers button.incorrect {
-    background: #f0b0b0;
+  background: rgba(220, 53, 69, 0.3);
+  border-color: #dc3545;
+  color: #ff6b81;
 }
 
 .fill-in {
-    margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .fill-in input {
-    width: 300px;
-    padding: 8px;
+  width: 100%;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+}
+
+.fill-in input:focus {
+  border-color: #1de9b6;
+}
+
+.fill-in input:disabled {
+  opacity: 0.6;
 }
 
 .correct-text {
-    color: green;
-    font-weight: bold;
+  color: #2ed573;
+  font-weight: bold;
+  margin-top: 8px;
 }
 
 .incorrect-text {
-    color: red;
-    font-weight: bold;
+  color: #ff6b81;
+  font-weight: bold;
+  margin-top: 8px;
 }
 
 .actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
 }
 
 .reveal-btn {
-    background: #fff78b;
-    padding: 8px 14px;
-    border: 1px solid #999;
-    cursor: pointer;
+  padding: 10px 18px;
+  background: linear-gradient(135deg, #f9d423, #f4a800);
+  color: #1a1a2e;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.reveal-btn:hover {
+  opacity: 0.85;
 }
 
 .reveal-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
 .nav-buttons {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 8px;
 }
 
 .nav-buttons button {
-    padding: 8px 14px;
-    background: #a9d5ec;
-    border: 1px solid #6b8dbb;
-    cursor: pointer;
+  padding: 10px 18px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.nav-buttons button:hover {
+  background: rgba(255, 255, 255, 0.22);
 }
 
 .nav-buttons button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
-.nav-buttons .cancel-btn {
-    background: #e57373;
-    border: 1px solid #c62828;
-    color: #fff;
+.cancel-btn {
+  background: rgba(220, 53, 69, 0.7) !important;
+  border-color: rgba(220, 53, 69, 0.9) !important;
 }
 
-.nav-buttons .cancel-btn:hover {
-    background: #ef5350;
+.cancel-btn:hover {
+  background: rgba(220, 53, 69, 0.9) !important;
 }

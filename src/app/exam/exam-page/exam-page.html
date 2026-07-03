@@ -1,79 +1,71 @@
 <section>
+  <div class="card">
 
-  <h1>Prüfungsmodus</h1>
+    <h1>Prüfungsmodus</h1>
 
-  <div class="meta">
-    <span>Katalog: {{ catalog() }}</span>
-    <span>Id: {{ currentQuestion()?.id }}</span>
-    <span>{{ progressText() }}</span>
-    <span class="timer">Zeit: {{ timeText() }}</span>
-  </div>
-
-  @if (currentQuestion()) {
-
-    <div class="question-box">
-      {{ currentQuestion()?.text }}
+    <div class="meta">
+      <span>Katalog: {{ catalog() }}</span>
+      <span>Id: {{ currentQuestion()?.id }}</span>
+      <span>{{ progressText() }}</span>
+      <span class="timer">Zeit: {{ timeText() }}</span>
     </div>
 
-    @switch (currentQuestion()?.type) {
+    @if (currentQuestion()) {
 
-      @case ('sc') {
-
-        <div class="answers">
-          @for (answer of currentQuestion()?.answers; track $index) {
-            <button
-              (click)="selectSingleAnswer($index)"
-              [class.selected]="selectedAnswerIndex() === $index">
-              {{ answer.text }}
-            </button>
-          }
-        </div>
-
-      }
-
-      @case ('mc') {
-
-        <div class="answers">
-          @for (answer of currentQuestion()?.answers; track $index) {
-            <button
-              (click)="toggleMultipleAnswer($index)"
-              [class.selected]="selectedAnswerIndices().includes($index)">
-              {{ answer.text }}
-            </button>
-          }
-        </div>
-
-      }
-
-      @case ('fi') {
-
-        <div class="fill-in">
-          <input
-            type="text"
-            [(ngModel)]="fillInAnswer"
-            placeholder="Antwort eingeben">
-        </div>
-
-      }
-
-    }
-
-    <div class="actions">
-
-      <div class="nav-buttons">
-        <button class="cancel-btn" (click)="cancelToHome()">Startseite</button>
-        <button (click)="previousQuestion()" [disabled]="currentIndex() === 0">Zurück</button>
-        <button (click)="nextQuestion()">
-          {{ currentIndex() === questions().length - 1 ? 'Prüfung beenden' : 'Weiter' }}
-        </button>
+      <div class="question-box">
+        {{ currentQuestion()!.text }}
       </div>
 
-    </div>
+      @switch (currentQuestion()!.type) {
 
-  } @else {
+        @case ('sc') {
+          <div class="answers">
+            @for (answer of currentQuestion()!.answers; track $index) {
+              <button
+                (click)="selectSingleAnswer($index)"
+                [class.selected]="selectedAnswerIndex() === $index">
+                {{ answer.text }}
+              </button>
+            }
+          </div>
+        }
 
-    <p>Keine Fragen für diesen Katalog gefunden.</p>
+        @case ('mc') {
+          <div class="answers">
+            @for (answer of currentQuestion()!.answers; track $index) {
+              <button
+                (click)="toggleMultipleAnswer($index)"
+                [class.selected]="selectedAnswerIndices().includes($index)">
+                {{ answer.text }}
+              </button>
+            }
+          </div>
+        }
 
-  }
+        @case ('fi') {
+          <div class="fill-in">
+            <input
+              type="text"
+              [(ngModel)]="fillInAnswer"
+              placeholder="Antwort eingeben">
+          </div>
+        }
 
+      }
+
+      <div class="actions">
+        <div class="nav-buttons">
+          <button class="cancel-btn" (click)="cancelToHome()">Startseite</button>
+          <button (click)="previousQuestion()" [disabled]="currentIndex() === 0">Zurück</button>
+          <button (click)="nextQuestion()">
+            {{ currentIndex() === questions().length - 1 ? 'Prüfung beenden' : 'Weiter' }}
+          </button>
+        </div>
+      </div>
+
+    } @else {
+      <p style="color: rgba(255,255,255,0.6); text-align: center;">Keine Fragen gefunden.</p>
+    }
+
+  </div>
 </section>
