@@ -55,7 +55,7 @@ h1 {
   cursor: pointer;
   transition: opacity 0.2s;
   border: none;
-  color: #fff;
+  color: #000000;
 }
 
 .actions button:first-child {
@@ -68,7 +68,7 @@ h1 {
 }
 
 .actions a button {
-  background: linear-gradient(135deg, #1de9b6, #1565c0);
+  background: linear-gradient(135deg,  #f9d423, #f4a800);
 }
 
 .actions a button:hover {

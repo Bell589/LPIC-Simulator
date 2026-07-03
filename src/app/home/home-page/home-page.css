@@ -66,8 +66,8 @@ input[type="number"]:focus {
 }
 
 select option {
-  background: #1a237e;
-  color: #fff;
+  background: #ff810c;
+  color: #000000;
 }
 
 /* Button-Gruppen (Modus, Reihenfolge) */
@@ -107,8 +107,8 @@ select option {
 }
 
 .btn-group button.active {
-  background: linear-gradient(135deg, #1de9b6, #1565c0);
-  color: #fff;
+  background: linear-gradient(135deg, #f1aa4c, #c26903);
+  color: #000000;
   border-color: transparent;
   font-weight: bold;
 }
@@ -150,8 +150,8 @@ select option {
   width: 100%;
   padding: 14px;
   margin-top: 10px;
-  background: linear-gradient(135deg, #1de9b6, #1565c0);
-  color: #fff;
+  background: linear-gradient(135deg, #f1aa4c, #c26903);
+  color: #020202;
   border: none;
   border-radius: 10px;
   font-size: 16px;

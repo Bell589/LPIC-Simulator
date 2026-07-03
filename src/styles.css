@@ -8,7 +8,7 @@
 body {
   font-family: Arial, sans-serif;
   min-height: 100vh;
-  background-image: url('/background.png');
+  background-image: url('/background.avif');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -42,7 +42,7 @@ body::before {
 
 /* Gemeinsame Button-Stile */
 .btn-primary {
-  background: linear-gradient(135deg, #1de9b6, #1565c0);
+  background: linear-gradient(135deg, #1de9b6, #01aa1d);
   color: #fff;
   border: none;
   border-radius: 8px;
